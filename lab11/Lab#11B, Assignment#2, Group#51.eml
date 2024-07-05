@@ -1,41 +1,26 @@
-MIME-Version: 1.0
-Date: Fri, 12 Apr 2024 14:46:34 +0530
-From: abhishekkh22 <abhishekkh22@iitk.ac.in>
-To: Cs220spring2024 <cs220spring2024@gmail.com>
-Subject: Lab#11B, Assignment#2, Group#51
-Message-ID: <d8002164890a31430f378417d09b56d1@iitk.ac.in>
-X-Sender: abhishekkh22@iitk.ac.in
-X-Remote-Browser: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
- AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Safari/605.1.15
-X-Originating-IP: [172.17.49.84]
-Content-Type: multipart/mixed;
- boundary="=_95c7b8b0dcf1653295f952d8fc8dc60f"
+.text
+.globl main
+main: li $v0, 5
+      syscall
+      add $t1, $v0, $0
+      mtc1 $0, $f2
+      addi $t2, $0, 1 
+loop: blez $t1, exit
+      li $v0, 6
+      syscall
+      beq $t2, $0, else
+      add.s $f2, $f2, $f0
+      j ifend
+else: sub.s $f2, $f2, $f0
+ifend: xori $t2, $t2, 1
+      addi $t1, $t1, -1
+      j loop
+exit: mov.s $f12, $f2
+      li $v0, 2
+      syscall
+      jr $ra          
+      
+      
+      
+            
 
---=_95c7b8b0dcf1653295f952d8fc8dc60f
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/html; charset=UTF-8
-
-<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
-=3DUTF-8" /></head><body style=3D'font-size: 10pt; font-family: Verdana,Gen=
-eva,sans-serif'>
-<p><br /></p>
-
-</body></html>
-
---=_95c7b8b0dcf1653295f952d8fc8dc60f
-Content-Transfer-Encoding: base64
-Content-Type: text/x-asm;
- name=vector.s
-Content-Disposition: attachment;
- filename=vector.s;
- size=425
-
-LnRleHQKLmdsb2JsIG1haW4KbWFpbjogbGkgJHYwLCA1CiAgICAgIHN5c2NhbGwKICAgICAgYWRk
-ICR0MSwgJHYwLCAkMAogICAgICBtdGMxICQwLCAkZjIKICAgICAgYWRkaSAkdDIsICQwLCAxIAps
-b29wOiBibGV6ICR0MSwgZXhpdAogICAgICBsaSAkdjAsIDYKICAgICAgc3lzY2FsbAogICAgICBi
-ZXEgJHQyLCAkMCwgZWxzZQogICAgICBhZGQucyAkZjIsICRmMiwgJGYwCiAgICAgIGogaWZlbmQK
-ZWxzZTogc3ViLnMgJGYyLCAkZjIsICRmMAppZmVuZDogeG9yaSAkdDIsICR0MiwgMQogICAgICBh
-ZGRpICR0MSwgJHQxLCAtMQogICAgICBqIGxvb3AKZXhpdDogbW92LnMgJGYxMiwgJGYyCiAgICAg
-IGxpICR2MCwgMgogICAgICBzeXNjYWxsCiAgICAgIGpyICRyYSAgICAgICAgICAKICAgICAgCiAg
-ICAgIAogICAgICAKICAgICAgICAgICAgCgo=
---=_95c7b8b0dcf1653295f952d8fc8dc60f--
